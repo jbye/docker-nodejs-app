@@ -4,10 +4,6 @@ WORKDIR /src
 
 RUN apt-get update && apt-get install -y nodejs npm
 
-ADD package.json /src
+ADD app/package.json /src/
 RUN npm install
-ADD . /src
-
-CMD nodejs app.js
-
-EXPOSE 3000
+ADD app/nodemon.json /src/
